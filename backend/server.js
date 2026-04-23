@@ -1,21 +1,45 @@
 const express = require('express');
-const dotenv = require('dotenv');
 const cors = require('cors');
+const dotenv = require('dotenv');
 const connectDB = require('./config/db');
-const projectRoutes = require('./routes/projectRoutes');
-const skillRoutes = require('./routes/skillRoutes');
+const Project = require('./models/Project');
+const Skill = require('./models/Skill');
 
 dotenv.config();
-
-connectDB();
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/projects', projectRoutes);
-app.use('/api/skills', skillRoutes);
+// Health check – confirms backend is reachable
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', mongo: process.env.MONGO_URI ? 'uri set' : 'MISSING' });
+});
+
+// Projects
+app.get('/api/projects', async (req, res) => {
+  try {
+    await connectDB();
+    const projects = await Project.find({});
+    res.json(projects);
+  } catch (err) {
+    console.error('Projects error:', err.message);
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Skills
+app.get('/api/skills', async (req, res) => {
+  try {
+    await connectDB();
+    const skills = await Skill.find({});
+    res.json(skills);
+  } catch (err) {
+    console.error('Skills error:', err.message);
+    res.status(500).json({ message: err.message });
+  }
+});
 
 const PORT = process.env.PORT || 5000;
 
