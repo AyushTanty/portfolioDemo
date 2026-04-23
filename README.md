@@ -1,4 +1,4 @@
-# 🌐 Ayush Tanty's Portfolio
+# 🌐 Demo Portfolio
 
 A modern, responsive, and full-stack personal portfolio website built with **React.js**, **Node.js/Express**, and **MongoDB**.
 
