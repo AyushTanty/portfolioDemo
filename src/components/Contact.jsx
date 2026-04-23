@@ -1,45 +1,9 @@
-import React, { useState } from 'react';
+
 import './Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [status, setStatus] = useState('');
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('Sending...');
-    try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus(data.message || 'Message sent successfully!');
-        if (!data.warning) {
-          setFormData({ name: '', email: '', message: '' });
-        }
-      } else {
-        setStatus(data.message || 'Failed to send message.');
-      }
-    } catch (error) {
-      console.error('Error sending message:', error);
-      setStatus('Could not connect to the server. Please ensure the backend is running.');
-    }
-  };
 
   return (
     <div className="contact-container">
