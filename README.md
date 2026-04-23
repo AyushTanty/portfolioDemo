@@ -92,6 +92,11 @@ portfolio/
 
 ---
 
+##live demo
+```bash
+ https://portfolio-demo-g5j9binka-ayushtantys-projects.vercel.app/
+```
+
 ## ⭐ Acknowledgement
 
 Thanks for visiting my portfolio project! 😊
