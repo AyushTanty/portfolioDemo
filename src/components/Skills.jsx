@@ -8,7 +8,7 @@ const Skills = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/skills');
+        const response = await fetch('/api/skills');
         const data = await response.json();
         setSkills(data);
         setLoading(false);
