@@ -1,0 +1,73 @@
+.custom-navbar {
+    background-color: rgb(38, 36, 36);
+    padding: 10px 0;
+}
+
+
+.nav-container {
+    width: 100%;
+    padding: 0 20px;
+}
+
+
+.logo {
+    background-color: white;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: orange;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+.nav-custom .nav-link {
+    background-color: rgba(0, 0, 0, 0.75);
+    margin: 5px;
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-weight: 500;
+    color: white;
+  
+}
+
+.nav-custom .nav-link:hover,
+.nav-custom .nav-link:focus,
+.nav-custom .nav-link:active,
+.nav-custom .nav-link:focus-visible {
+    background-color: lightgray;
+    color: black !important;
+    outline: none;
+}
+
+
+
+/* ===== BURGER ===== */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 992px) {
+    .nav-custom {
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .nav-custom .nav-link {
+        display: block;
+        width: 100%;
+        margin: 8px 0;
+    }
+}
